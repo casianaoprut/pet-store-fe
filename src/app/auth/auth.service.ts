@@ -7,6 +7,7 @@ import {Observable, of} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
 
 import {User} from "../shared/model/user.model";
+import firebase from "firebase/compat/app";
 
 
 @Injectable({
@@ -31,6 +32,12 @@ export class AuthService {
   }
   logout(): Promise<void> {
     return this.afAuth.signOut();
+  }
+
+  async googleAuthentication(): Promise<void> {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const credential = await this.afAuth.signInWithPopup(provider);
+    return this.updateUserData(credential.user);
   }
 
   private updateUserData(user: any, displayName?: string, photoURL?: string): Promise<void> {

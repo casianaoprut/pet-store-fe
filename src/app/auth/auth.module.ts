@@ -10,6 +10,7 @@ import {AuthComponent} from "./auth.component";
 import {FileUploadModule} from "primeng/fileupload";
 import {RouterModule} from "@angular/router";
 import {LoginGuard} from "../shared/guards/login.guard";
+import { GoogleAuthenticationComponent } from './google-authentication/google-authentication.component';
 
 
 
@@ -18,6 +19,7 @@ import {LoginGuard} from "../shared/guards/login.guard";
     AuthComponent,
     EmailSignInComponent,
     EmailLogInComponent,
+    GoogleAuthenticationComponent,
   ],
   imports: [
     CommonModule,

@@ -5,7 +5,10 @@ import {PasswordModule} from 'primeng/password';
 import {MessageModule} from 'primeng/message';
 import {InputTextModule} from 'primeng/inputtext';
 import {FileUploadModule} from 'primeng/fileupload';
-
+import {CardModule} from 'primeng/card';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [],
@@ -15,14 +18,22 @@ import {FileUploadModule} from 'primeng/fileupload';
     MessageModule,
     ButtonModule,
     InputTextModule,
-    FileUploadModule
+    FileUploadModule,
+    CardModule,
+    CalendarModule,
+    InputTextareaModule,
+    DropdownModule
   ],
   exports: [
     PasswordModule,
     MessageModule,
     ButtonModule,
     InputTextModule,
-    FileUploadModule
+    FileUploadModule,
+    CardModule,
+    CalendarModule,
+    InputTextareaModule,
+    DropdownModule
   ]
 })
 export class PrimengModule { }
