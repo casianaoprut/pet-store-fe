@@ -7,20 +7,17 @@
       <div routerLinkActive="active">
         <a style="cursor: pointer" routerLink="/home-page" class="navbar-brand">
           <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/pick-me--pet-shelter.appspot.com/o/home.webp?alt=media&token=a0c9cd8a-9a62-46aa-9afe-d93467fc019b" alt="logo" width="40" height="40">
-          <p class="name">PickMePetShelter</p>
+          <p class="name">PickMe!PetStore</p>
         </a>
       </div>
     </div>
     <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active">
-          <a routerLink="/pets" style="cursor: pointer"><p class="petList">Pet List</p></a>
+          <a routerLink="/home-page" style="cursor: pointer"><p class="petList">Home Page</p></a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/forms/volunteer" style="cursor: pointer"><p class="volunteer">Volunteer</p></a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/forms/donation" style="cursor: pointer"><p class="donate">Donate</p></a>
+          <a routerLink="/pet-list" style="cursor: pointer"><p class="volunteer">Pet List</p></a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -44,12 +41,7 @@
             </li>
             <li *ngIf="user.admin" routerLinkActive="active">
               <a style="cursor: pointer" routerLink="/list/adoptions">
-                <p class="adoption">Adoptions List</p>
-              </a>
-            </li>
-            <li *ngIf="user.admin" routerLinkActive="active">
-              <a style="cursor: pointer" routerLink="/list/volunteers">
-                <p class="adoption">Volunteer List</p>
+                <p class="adoption">Accepted Forms List</p>
               </a>
             </li>
             <li  routerLinkActive="active">
