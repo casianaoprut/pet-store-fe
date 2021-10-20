@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Message} from "primeng/api";
+import {Subscription} from "rxjs";
+import {MyMessageService} from "../shared/my-message.service";
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy{
 
-  constructor() { }
+  isLoginMode = true;
+  msg: Message[] = [];
+  subscription = new Subscription();
 
-  ngOnInit(): void {
+  constructor(
+    private myMessageService: MyMessageService
+  ) { }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
+  ngOnInit(): void {
+    this.subscription = this.myMessageService.msg.subscribe(message => {
+      if (message === null){
+        this.msg = [];
+      } else {
+        this.msg = [];
+        this.msg[0] = message;
+      }
+    });
+  }
+
+  onChangingMode(): void{
+    this.isLoginMode = !this.isLoginMode;
+  }
 }

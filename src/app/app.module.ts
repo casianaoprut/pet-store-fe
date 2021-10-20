@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import {environment} from "../environments/environment";
 import { HeaderComponent } from './header/header.component';
 import {AuthModule} from "./auth/auth.module";
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
