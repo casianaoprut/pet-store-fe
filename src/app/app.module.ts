@@ -12,12 +12,15 @@ import {environment} from "../environments/environment";
 import { HeaderComponent } from './header/header.component';
 import {AuthModule} from "./auth/auth.module";
 import { DropdownDirective } from './shared/dropdown.directive';
+import { HomePageComponent } from './home-page/home-page.component';
+import {PetModule} from "./pet-list/pet.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AuthModule
+    AuthModule,
+    PetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

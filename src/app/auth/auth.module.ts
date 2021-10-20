@@ -8,6 +8,8 @@ import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {AuthComponent} from "./auth.component";
 import {FileUploadModule} from "primeng/fileupload";
+import {RouterModule} from "@angular/router";
+import {LoginGuard} from "../shared/guards/login.guard";
 
 
 
@@ -19,11 +21,14 @@ import {FileUploadModule} from "primeng/fileupload";
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ButtonModule,
     PasswordModule,
     InputTextModule,
-    FormsModule,
-    FileUploadModule
+    FileUploadModule,
+    RouterModule.forChild([
+      {path: '', component: AuthComponent, canActivate: [LoginGuard]},
+    ])
   ],
   exports: [
     AuthComponent,
