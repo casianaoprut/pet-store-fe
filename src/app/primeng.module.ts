@@ -4,6 +4,7 @@ import {ButtonModule} from 'primeng/button';
 import {PasswordModule} from 'primeng/password';
 import {MessageModule} from 'primeng/message';
 import {InputTextModule} from 'primeng/inputtext';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 @NgModule({
@@ -13,13 +14,15 @@ import {InputTextModule} from 'primeng/inputtext';
     PasswordModule,
     MessageModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    FileUploadModule
   ],
   exports: [
     PasswordModule,
     MessageModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    FileUploadModule
   ]
 })
 export class PrimengModule { }
