@@ -9,12 +9,14 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {environment} from "../environments/environment";
-import { HeaderComponent } from './header/header/header.component';
+import { HeaderComponent } from './header/header.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
