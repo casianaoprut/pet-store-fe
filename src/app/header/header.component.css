@@ -1,0 +1,39 @@
+.logo {
+  position: relative;
+  top: -60%;
+  left: 10%;
+}
+.name {
+  position: relative;
+  top: -60%;
+  left: -10px;
+  font-size: 17px;
+  color: -moz-default-background-color;
+  font-family: "Rockwell Condensed";
+}
+
+nav ul:last-of-type {
+  margin-right: 10px;
+}
+
+nav ul li a p {
+  font-family: Rockwell;
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+
+@media (max-width: 770px) {
+  .logo {
+    position: relative;
+    top: -90%;
+    left: 9%;
+  }
+
+  .name {
+    position: relative;
+    top: -23px;
+    left: -10px;
+    font-size: 17px;
+  }
+}
