@@ -1,1 +1,76 @@
-<p>home-page works!</p>
+<div *ngIf="showDetails && selectedPet !== null" style="display: inline-block">
+  <app-pet-details
+    [pet]="selectedPet"
+    (closeDetails)="onHideDetails()"
+  ></app-pet-details>
+</div>
+<div style="text-align: center; margin: 10px">
+  <p><b>A place where you can find the newest member of your family!</b></p>
+  <img
+    style="height: 470px; margin: 5px"
+    src="https://firebasestorage.googleapis.com/v0/b/pick-me--pet-shelter.appspot.com/o/home-page%20photo%201.jpg?alt=media&token=057d170f-afbb-404b-9121-0a4d27ebf80d"
+    alt="home-page photo"
+  >
+  <img
+    style="margin: 5px; height: 470px"
+    src="https://firebasestorage.googleapis.com/v0/b/pet-store-ad9a0.appspot.com/o/Home-Page%2FCody2.jfif?alt=media&token=d31df766-8b30-4516-96ff-b7cc963ea76c"
+    alt="home-page photo"
+  >
+  <img
+    style="height: 470px; margin: 5px"
+    src="https://firebasestorage.googleapis.com/v0/b/pick-me--pet-shelter.appspot.com/o/home-page%20photo%202.jpg?alt=media&token=8f1e07c6-c5e2-467c-a1a4-9709d6872c1c"
+    alt="home-page photo"
+  >
+</div>
+<p-carousel
+  [value]="pets"
+  [style]="{margin: '10px'}"
+  styleClass="custom-carousel"
+  [numVisible]="3"
+  [numScroll]="1"
+  [circular]="true"
+  [autoplayInterval]="3000"
+  [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="header">
+    <h3 style="text-align: center"><b>The newest pets on our shop!</b></h3>
+  </ng-template>
+  <ng-template let-pet pTemplate="item">
+    <p-card [style]="{margin: '5px'}" header="{{pet.name}}, {{getAge(pet)}} years">
+      <ng-template pTemplate="header">
+        <img
+          [src]="pet.photoURL"
+          alt="{{ pet.name }}"
+          class="img-responsive center-block"
+          style="max-height: 150px; width: auto;">
+      </ng-template>
+      <h5>{{pet.breed }}</h5>
+      <h5 *ngIf="pet.description !== undefined">
+        {{pet.description.length > 50 ? pet.description.slice(0,50)+'...' : pet.description}}
+      </h5>
+      <ng-template pTemplate="footer">
+        <div>
+          <button
+            style="font-size: 13px; width: 80px"
+            pButton
+            class="p-button-success p-button-rounded"
+            label="Adopt Me!"
+            (click)="onAdoptMe(pet)"
+          ></button>
+          <button
+            (click)="onShowDetails(pet)"
+            style="font-size: 13px; width: 80px;"
+            pButton
+            class="p-button-info p-button-rounded pull-right"
+            label="Details"
+          ></button>
+        </div>
+      </ng-template>
+    </p-card>
+  </ng-template>
+</p-carousel>
+<div style="margin: 10px; text-align: center">
+  <label for="map">Here you can find us!</label>
+  <agm-map id="map" [latitude]="lat" [longitude]="lng" style="height: 200px">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>

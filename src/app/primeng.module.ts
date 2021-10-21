@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {PanelModule} from 'primeng/panel';
 import {TagModule} from 'primeng/tag';
+import {CarouselModule} from 'primeng/carousel';
+import {GMapModule} from 'primeng/gmap';
 
 @NgModule({
   declarations: [],
@@ -36,7 +38,9 @@ import {TagModule} from 'primeng/tag';
     HttpClientModule,
     InputNumberModule,
     PanelModule,
-    TagModule
+    TagModule,
+    CarouselModule,
+    GMapModule
   ],
   exports: [
     PasswordModule,
@@ -54,7 +58,9 @@ import {TagModule} from 'primeng/tag';
     HttpClientModule,
     InputNumberModule,
     PanelModule,
-    TagModule
+    TagModule,
+    CarouselModule,
+    GMapModule
   ]
 })
 export class PrimengModule { }

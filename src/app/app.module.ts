@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { BrowserModule } from '@angular/platform-browser';
 
 import {AngularFireModule} from "@angular/fire/compat";
@@ -7,15 +8,18 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {environment} from "../environments/environment";
-import { HeaderComponent } from './header/header.component';
-import {AuthModule} from "./auth/auth.module";
-import { DropdownDirective } from './shared/dropdown.directive';
-import { HomePageComponent } from './home-page/home-page.component';
 import {PetModule} from "./pet-list/pet.module";
 import {PrimengModule} from "./primeng.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HomePageComponent } from './home-page/home-page.component';
+
+import {environment} from "../environments/environment";
+
+import { DropdownDirective } from './shared/dropdown.directive';
+
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -31,10 +35,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AuthModule,
     BrowserAnimationsModule,
     PetModule,
-    PrimengModule
+    PrimengModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCqrIMrOL182Wcr_d8iACvuFeIT2pK4_U0'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
