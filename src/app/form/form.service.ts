@@ -27,7 +27,7 @@ export class FormService {
     this.saleForms = this.pendingSaleFormsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as SaleForm;
-        data.idForm = a.payload.doc.id;
+        data.id = a.payload.doc.id;
         return data;
       });
     }));
@@ -37,7 +37,7 @@ export class FormService {
     this.saleList = this.saleListCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as SaleForm;
-        data.idForm = a.payload.doc.id;
+        data.id = a.payload.doc.id;
         return data;
       });
     }));
@@ -80,7 +80,7 @@ export class FormService {
 
   clearUserSaleForm(form: SaleForm): Promise<void>{
     const formRef: AngularFirestoreDocument<SaleForm> = this.afs.doc(`sale-forms/${form.id}`);
-    if (form.accepted){
+    if (form.status == Status.Accepted){
       const acceptedForm: SaleForm = {
         ...form,
         userReview: false
@@ -98,7 +98,7 @@ export class FormService {
     return petsAdoptionForms.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as SaleForm;
-        data.idForm = a.payload.doc.id;
+        data.id = a.payload.doc.id;
         return data;
       });
     }));

@@ -9,6 +9,11 @@ import {CardModule} from 'primeng/card';
 import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {DropdownModule} from 'primeng/dropdown';
+import {SkeletonModule} from 'primeng/skeleton';
+import {SidebarModule} from 'primeng/sidebar';
+import {RippleModule} from "primeng/ripple";
+import {HttpClientModule} from '@angular/common/http';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [],
@@ -22,7 +27,12 @@ import {DropdownModule} from 'primeng/dropdown';
     CardModule,
     CalendarModule,
     InputTextareaModule,
-    DropdownModule
+    DropdownModule,
+    SkeletonModule,
+    SidebarModule,
+    RippleModule,
+    HttpClientModule,
+    InputNumberModule
   ],
   exports: [
     PasswordModule,
@@ -33,7 +43,12 @@ import {DropdownModule} from 'primeng/dropdown';
     CardModule,
     CalendarModule,
     InputTextareaModule,
-    DropdownModule
+    DropdownModule,
+    SkeletonModule,
+    SidebarModule,
+    RippleModule,
+    HttpClientModule,
+    InputNumberModule
   ]
 })
 export class PrimengModule { }

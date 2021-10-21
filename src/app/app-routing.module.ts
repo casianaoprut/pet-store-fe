@@ -7,6 +7,8 @@ const routes: Routes = [
   {path: 'home-page', component: HomePageComponent},
   {path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(module => module.AuthModule)},
+  {path: 'pet-list',
+    loadChildren: () => import('./pet-list/pet.module').then(module => module.PetModule)},
 ];
 
 @NgModule({

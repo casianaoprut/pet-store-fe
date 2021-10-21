@@ -1,0 +1,45 @@
+<div class="backdrop"></div>
+<div class="details-box">
+  <button
+    pButton
+    class="p-button-danger p-button-rounded pull-right"
+    type=button
+    icon="pi pi-times"
+    (click)="onClose()"
+    label=""
+  ></button>
+  <hr>
+  <div class="details-box-actions ">
+    <div>
+      <img
+        [src]="pet.photoURL"
+        class="img-rounded imagine"
+        style="max-height: 250px; max-width: 100%;"
+        [alt]="pet.name"
+      >
+      <hr>
+      <p>{{pet.name}}, {{getAgeInYears() > 0? getAgeInYears() + ' years' : getAgeInMonths() + ' months'}}</p>
+    </div>
+    <div>
+      <p class="intro">
+        Hello, my name is {{pet.name}} and I am {{pet.gender === 'female'? 'a girl':'a boy'}}. My birth date is {{birthDate}}
+      </p>
+      <p class="about">{{pet.description}}</p>
+    </div>
+    <div>
+      <h5>
+        Price: {{pet.price}} RON
+      </h5>
+    </div>
+    <div *ngIf="!adminView">
+      <button
+        style="font-size: 13px; width: 80px"
+        pButton
+        class="p-button-success p-button-rounded"
+        label="Buy Me!"
+        (click)="onBuyMe()"
+      >
+      </button>
+    </div>
+  </div>
+</div>

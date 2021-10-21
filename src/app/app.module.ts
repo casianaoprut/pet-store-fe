@@ -14,8 +14,8 @@ import {AuthModule} from "./auth/auth.module";
 import { DropdownDirective } from './shared/dropdown.directive';
 import { HomePageComponent } from './home-page/home-page.component';
 import {PetModule} from "./pet-list/pet.module";
-import {ButtonModule} from "primeng/button";
-import {RippleModule} from "primeng/ripple";
+import {PrimengModule} from "./primeng.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -32,9 +32,9 @@ import {RippleModule} from "primeng/ripple";
     AngularFireAuthModule,
     AngularFireStorageModule,
     AuthModule,
+    BrowserAnimationsModule,
     PetModule,
-    ButtonModule,
-    RippleModule
+    PrimengModule
   ],
   providers: [],
   bootstrap: [AppComponent]

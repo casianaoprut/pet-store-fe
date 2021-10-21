@@ -1,0 +1,53 @@
+<div *ngIf="showAddPet">
+  <app-pet-edit
+    (closePetEdit)="onHandleAddPet()"
+  ></app-pet-edit>
+</div>
+<div style="text-align: center">
+  <div>
+    <div style="text-align: left">
+      <app-pet-filter (filtersChanged)="filterPets($event)"></app-pet-filter>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12" style="display: inline-block;">
+      <div *ngIf="user && user.admin" style="text-align: left">
+        <button
+          *ngIf="editMode"
+          pButton
+          pRipple
+          icon="pi pi-plus"
+          type="button"
+          label="New Pet"
+          style="font-size: 13px; width: 80px; margin-right: 5px"
+          class="p-button-rounded p-button-info"
+          (click)="onHandleAddPet()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="{{editMode? 'Cancel' : 'Edit Mode'}}"
+          style="font-size: 13px; width: 80px"
+          class="p-button-rounded p-button-danger"
+          (click)="onHandleEditMode()"
+        ></button>
+        <hr>
+      </div>
+      <div *ngIf="!petsLoaded" >
+        <p-skeleton [style]="{display: 'inline-block', margin: '5px'}" height="310px" width="300px"></p-skeleton>
+        <p-skeleton [style]="{display: 'inline-block', margin: '5px'}" height="310px" width="300px"></p-skeleton>
+        <p-skeleton [style]="{display: 'inline-block', margin: '5px'}" height="310px" width="300px"></p-skeleton>
+        <p-skeleton [style]="{display: 'inline-block', margin: '5px'}" height="310px" width="300px"></p-skeleton>
+        <p-skeleton [style]="{display: 'inline-block', margin: '5px'}" height="310px" width="300px"></p-skeleton>
+        <p-skeleton [style]="{display: 'inline-block', margin: '5px'}" height="310px" width="300px"></p-skeleton>
+      </div>
+      <div *ngIf="petsLoaded" class="center-block">
+        <app-pet-item
+          *ngFor="let petElement of filteredPetList"
+          [pet]="petElement"
+          [editMode]="editMode"
+          style="text-align: left">
+        </app-pet-item>
+      </div>
+    </div>
+  </div>
+</div>
