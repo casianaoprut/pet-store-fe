@@ -6,7 +6,6 @@ export interface SaleForm {
   firstname: string;
   lastname: string;
   adoptionDescription: string;
-  otherPets: string;
   address: string;
   userUid: string;
   status: Status

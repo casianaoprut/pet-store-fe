@@ -7,6 +7,7 @@ import {PrimengModule} from "../primeng.module";
 import {AuthGuard} from "../shared/guards/auth.guard";
 
 import { SaleFormComponent } from './sale-form/sale-form.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SaleFormComponent } from './sale-form/sale-form.component';
     RouterModule.forChild([
       {path: '', component: SaleFormComponent, canActivate: [AuthGuard]}
     ]),
+    FormsModule,
     PrimengModule
   ]
 })
