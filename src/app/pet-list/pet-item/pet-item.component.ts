@@ -34,7 +34,7 @@ export class PetItemComponent implements OnInit {
 
   onBuyMe(): void{
     localStorage.setItem('selectedPet', JSON.stringify(this.pet));
-    this.router.navigate(['sale-forms']);
+    this.router.navigate(['sale-form']);
   }
 
   onDelete(): void{

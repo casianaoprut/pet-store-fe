@@ -9,6 +9,8 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(module => module.AuthModule)},
   {path: 'pet-list',
     loadChildren: () => import('./pet-list/pet.module').then(module => module.PetModule)},
+  {path: 'sale-form',
+    loadChildren: () => import('./form/form.module').then(module => module.FormModule)},
 ];
 
 @NgModule({
