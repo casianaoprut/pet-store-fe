@@ -56,7 +56,7 @@ export class SaleFormComponent implements OnInit, OnDestroy {
         petId: this.selectedPet?.id,
         firstname: form.value.firstname,
         lastname: form.value.lastname,
-        adoptionDescription: form.value.description,
+        saleDescription: form.value.description,
         address: form.value.address,
         userUid: this.user.uid,
         status: Status.Pending,

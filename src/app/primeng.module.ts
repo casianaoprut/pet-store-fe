@@ -14,7 +14,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {RippleModule} from "primeng/ripple";
 import {HttpClientModule} from '@angular/common/http';
 import {InputNumberModule} from 'primeng/inputnumber';
-import {RadioButtonModule} from 'primeng/radiobutton';
+import {PanelModule} from 'primeng/panel';
+import {TagModule} from 'primeng/tag';
 
 @NgModule({
   declarations: [],
@@ -34,7 +35,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     RippleModule,
     HttpClientModule,
     InputNumberModule,
-    RadioButtonModule
+    PanelModule,
+    TagModule
   ],
   exports: [
     PasswordModule,
@@ -51,7 +53,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     RippleModule,
     HttpClientModule,
     InputNumberModule,
-    RadioButtonModule
+    PanelModule,
+    TagModule
   ]
 })
 export class PrimengModule { }

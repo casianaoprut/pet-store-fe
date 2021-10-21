@@ -1,0 +1,40 @@
+<div *ngIf="showDetails && pet !== null">
+  <app-pet-details [pet]="pet" [adminView]="true" (closeDetails)="onHandleDetails()"></app-pet-details>
+</div>
+<p-card
+  header="{{saleForm.firstname}} {{saleForm.lastname}}"
+  subheader="Adoption form"
+  styleClass="p-card-shadow">
+  <ng-template pTemplate="header" >
+    <div class="photoDiv">
+      <img
+        *ngIf="pet !== null"
+        [src]="pet.photoURL"
+        class="img-rounded photo center-block"
+        [alt]="pet.name"
+      >
+    </div>
+  </ng-template>
+  <h5> Description: {{saleForm.saleDescription}}</h5>
+  <h5> Address: {{saleForm.address}}</h5>
+  <p-button [style]="{fontSize: '13px'}" label="Animal details" styleClass="p-button-link" (click)="onHandleDetails()"></p-button>
+  <ng-template pTemplate="footer">
+    <div *ngIf="adminView" style="text-align: center">
+      <p-button
+        label="Accept"
+        [id] = "saleForm.firstname + '_' + saleForm.lastname "
+        icon="pi pi-check"
+        styleClass="p-button-secondary"
+        [style]="{fontSize: '13px'}"
+        (click)="onAccept()"
+      ></p-button>
+      <p-button
+        label="Reject"
+        [id] = "saleForm.firstname + '_' + saleForm.lastname "
+        icon="pi pi-times"
+        [style]="{marginLeft: '.5em', fontSize: '13px'}"
+        (click)="onReject()"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-card>

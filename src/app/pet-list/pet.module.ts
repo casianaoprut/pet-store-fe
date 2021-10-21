@@ -12,20 +12,23 @@ import {PrimengModule} from "../primeng.module";
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    PetListComponent,
-    PetItemComponent,
-    PetFilterComponent,
-    PetDetailsComponent,
-    PetEditComponent
-  ],
-  imports: [
-    CommonModule,
-    PrimengModule,
-    FormsModule,
-    RouterModule.forChild([
-      {path: '', component: PetListComponent},
-    ]),
-  ]
+    declarations: [
+        PetListComponent,
+        PetItemComponent,
+        PetFilterComponent,
+        PetDetailsComponent,
+        PetEditComponent
+    ],
+    exports: [
+        PetDetailsComponent
+    ],
+    imports: [
+        CommonModule,
+        PrimengModule,
+        FormsModule,
+        RouterModule.forChild([
+            {path: '', component: PetListComponent},
+        ]),
+    ]
 })
 export class PetModule { }

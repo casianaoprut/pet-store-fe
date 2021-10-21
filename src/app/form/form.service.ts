@@ -16,7 +16,7 @@ export class FormService {
   pendingSaleFormsCollection: AngularFirestoreCollection;
   saleForms = new Observable<SaleForm[]>();
   saleListCollection: AngularFirestoreCollection;
-  saleList = new Observable<SaleForm[]>();
+  acceptedSaleList = new Observable<SaleForm[]>();
 
   constructor(
     private afs: AngularFirestore
@@ -34,7 +34,7 @@ export class FormService {
     this.saleListCollection = this.afs.collection('sale-forms', ref => {
       return ref.where('status', '==', Status.Accepted);
     });
-    this.saleList = this.saleListCollection.snapshotChanges().pipe(map(changes => {
+    this.acceptedSaleList = this.saleListCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as SaleForm;
         data.id = a.payload.doc.id;

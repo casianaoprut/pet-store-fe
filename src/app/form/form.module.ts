@@ -12,13 +12,16 @@ import { SaleFormComponent } from './sale-form/sale-form.component';
 import { SaleFormsManagerComponent } from './sale-forms-manager/sale-forms-manager.component';
 import { UserFormListComponent } from './user-form-list/user-form-list.component';
 import { AcceptedFormListComponent } from './accepted-form-list/accepted-form-list.component';
+import { SaleFormItemComponent } from './sale-form-item/sale-form-item.component';
+import {PetModule} from "../pet-list/pet.module";
 
 @NgModule({
   declarations: [
     SaleFormComponent,
     SaleFormsManagerComponent,
     UserFormListComponent,
-    AcceptedFormListComponent
+    AcceptedFormListComponent,
+    SaleFormItemComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +32,8 @@ import { AcceptedFormListComponent } from './accepted-form-list/accepted-form-li
       {path: 'accepted-forms', component: AcceptedFormListComponent, canActivate: [AdminGuard]}
     ]),
     FormsModule,
-    PrimengModule
+    PrimengModule,
+    PetModule
   ]
 })
 export class FormModule { }

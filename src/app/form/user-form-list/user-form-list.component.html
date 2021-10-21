@@ -1,1 +1,59 @@
-<p>user-form-list works!</p>
+<div style="margin-top: 10px">
+  <p-skeleton width="100%" height="200px" *ngIf="!formLoaded"></p-skeleton>
+  <p-panel *ngIf="formLoaded" styleClass="p-shadow-6" [style]="{margin: '5px'}" [toggleable]="true">
+
+    <ng-template pTemplate="header">
+      <h1 style="display: inline-block"><b>{{boughtPet.name === undefined?
+        'This pet was deleted form our database, for more details contact the administrator' :
+        boughtPet.name + ', ' + boughtPet.breed
+        }}</b></h1>
+    </ng-template>
+    <ng-template pTemplate="icons">
+      <button
+        id="clear"
+        *ngIf="userIsDone()"
+        (click)="onClear()"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-rounded p-button-plain p-button-text"></button>
+      <p-tag
+        *ngIf="checkStatus('pending')"
+        [style]="{fontSize: '12px'}"
+        styleClass="p-mr-2"
+        value="Pending"
+        [rounded]="true">
+      </p-tag>
+      <p-tag
+        *ngIf="checkStatus('accepted')"
+        [style]="{fontSize: '12px'}"
+        styleClass="p-mr-2"
+        severity="success"
+        value="Accepted"
+        [rounded]="true">
+      </p-tag>
+      <p-tag
+        *ngIf="checkStatus('rejected')"
+        [style]="{fontSize: '12px'}"
+        styleClass="p-mr-2"
+        severity="danger"
+        value="Rejected"
+        [rounded]="true">
+      </p-tag>
+    </ng-template>
+    <div *ngIf="boughtPet.name !== undefined">
+      <img
+        [src]="boughtPet.photoURL"
+        class="img-responsive "
+        style="max-height: 100px; max-width: 100%; display: inline-block; margin-right: 20px;"
+        [alt]="boughtPet.name"
+      >
+      <div style="display: inline-block">
+        <h5>Pet gender: {{boughtPet.gender}}.</h5>
+        <h5>Pet age: {{getAgeInYears() > 0 ? getAgeInYears() + ' years' : getAgeInMonths() + ' months'}}</h5>
+        <h5>Pet description: {{boughtPet.description}}</h5>
+      </div>
+    </div>
+  </p-panel>
+</div>
